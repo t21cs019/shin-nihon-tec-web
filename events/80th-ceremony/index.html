@@ -21,15 +21,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans JP', sans-serif; }
-        .font-eng { font-family: 'Oswald', sans-serif; }
-        /* スライドショー用スタイル */
-        .slide-active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        .slide-hidden { display: none; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .scroll-smooth { scroll-behavior: smooth; }
-    </style>
+    
+    <link href="/assets/css/common.css" rel="stylesheet">
+    <link href="/assets/css/event.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen scroll-smooth">
 
@@ -250,47 +244,7 @@
         </div>
     </footer>
 
-    <script>
-        // シンプルなスライドショー用スクリプト
-        let currentSlide = 1;
-        const totalSlides = 3; // スライドの枚数
-
-        function changeSlide(direction) {
-            document.getElementById(`slide-${currentSlide}`).classList.add('slide-hidden');
-            document.getElementById(`slide-${currentSlide}`).classList.remove('slide-active');
-            document.getElementById(`dot-${currentSlide}`).classList.add('opacity-50');
-            document.getElementById(`dot-${currentSlide}`).classList.remove('opacity-100');
-
-            currentSlide += direction;
-            if (currentSlide > totalSlides) currentSlide = 1;
-            if (currentSlide < 1) currentSlide = totalSlides;
-
-            document.getElementById(`slide-${currentSlide}`).classList.remove('slide-hidden');
-            document.getElementById(`slide-${currentSlide}`).classList.add('slide-active');
-            document.getElementById(`dot-${currentSlide}`).classList.remove('opacity-50');
-            document.getElementById(`dot-${currentSlide}`).classList.add('opacity-100');
-        }
-
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-
-        // モバイルメニュー用スクリプト（リンククリック時に自動で閉じる機能を追加）
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        });
-
-        // スマホメニュー内のリンクを押した時にメニューを閉じる
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-            });
-        });
-    </script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/event.js"></script>
 </body>
 </html>
