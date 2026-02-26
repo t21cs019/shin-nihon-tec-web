@@ -2,19 +2,24 @@
 
 # ディレクトリ構成
 
+'''
 shin-nihon-tec-web/ (本番用リポジトリ)
 │
-├── index.html          # ★トップページ（企業情報、事業内容などは全てこの中！）
+├── index.html          # トップページ
 │
-├── events/             # ★別ページとして飛ぶ「イベント」等はここに入れる
+├── events/             # 別ページとして飛ぶ「イベント」
 │   ├── _template/      # 事務員さん用の雛形フォルダ
-│   │   └── index.html
+│   │   ├── index.html  # 雛形のHTML
+│   │   └── dummy.jpg   # 雛形用のダミー画像（あれば）
 │   │
 │   └── 80th-ceremony/  # 80周年式典の詳細ページ
-│       └── index.html  # (https://.../events/80th-ceremony/ でアクセス)
+│       ├── index.html  # イベントのHTML
+│       ├── slide1.jpg  # ★このイベントで使う写真たち
+│       └── slide2.jpg  # ★このイベントで使う写真たち
 │
-└── assets/             # 画像や共通ファイルをまとめる
+└── assets/             # 全体で共通して使うものだけをまとめる
     ├── css/
     └── images/
-        ├── top/        # トップページ用の画像
-        └── events/     # イベント用の画像
+        ├── logo.png    # 会社のロゴなど
+        └── top-bg.jpg  # トップページの背景画像など
+'''
