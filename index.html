@@ -20,43 +20,10 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-        .font-eng { font-family: 'Oswald', sans-serif; }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-        /* オープニング演出 */
-        #opening-splash {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #111;
-            z-index: 9999;
-            display: flex; justify-content: center; align-items: center; flex-direction: column;
-            transition: opacity 1.5s ease-in-out, visibility 1.5s;
-        }
-        .splash-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        
-        .zoom-img { animation: zoomIn 4s ease-out forwards; }
-        @keyframes zoomIn { 0% { transform: scale(1.0); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 0.8; } }
-        
-        .fade-up { animation: fadeUp 1s ease-out 0.5s forwards; opacity: 0; transform: translateY(20px); }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-        .hero-bg {
-            background-image: url('/assets/images/image1.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        @media (min-width: 768px) {
-            .hero-bg {
-                background-attachment: fixed;
-            }
-        }
-        .scroll-smooth {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link href="/assets/css/common.css" rel="stylesheet">
+    <link href="/assets/css/top.css" rel="stylesheet">
 </head>
 <body class="text-gray-800 scroll-smooth">
 
@@ -663,52 +630,7 @@
         </div>
     </footer>
 
-    <script>
-        // --- オープニング演出用スクリプト (SKIP機能付き) ---
-        
-        // タイマーIDを保存する変数
-        let splashTimer;
-
-        // アニメーション終了処理
-        function finishSplash() {
-            const splash = document.getElementById('opening-splash');
-            if (splash && !splash.classList.contains('splash-hidden')) {
-                splash.classList.add('splash-hidden');
-            }
-        }
-
-        // SKIPボタンが押された時の処理
-        function skipAnimation() {
-            clearTimeout(splashTimer); // 自動終了タイマーを解除
-            finishSplash(); // すぐに消す
-        }
-
-        // ページ読み込み時の処理
-        window.addEventListener('load', () => {
-            // 4.5秒後に自動で消すタイマーをセット
-            splashTimer = setTimeout(finishSplash, 4500); 
-        });
-        // ---------------------------------
-
-        // モバイルメニュー用スクリプト
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if(menuBtn){
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-        }
-
-        if(mobileMenu){
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                });
-            });
-        }
-    </script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/top.js"></script>
 </body>
 </html>
