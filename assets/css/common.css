@@ -1,0 +1,4 @@
+/* 全ページ共通のスタイル */
+body { font-family: 'Noto Sans JP', sans-serif; }
+.font-eng { font-family: 'Oswald', sans-serif; }
+.scroll-smooth { scroll-behavior: smooth; }

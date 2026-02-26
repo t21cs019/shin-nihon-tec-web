@@ -21,15 +21,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans JP', sans-serif; }
-        .font-eng { font-family: 'Oswald', sans-serif; }
-        /* スライドショー用スタイル */
-        .slide-active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        .slide-hidden { display: none; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .scroll-smooth { scroll-behavior: smooth; }
-    </style>
+    
+    <link href="/assets/css/common.css" rel="stylesheet">
+    <link href="/assets/css/event.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen scroll-smooth">
 
@@ -95,7 +89,7 @@
             <div class="relative bg-black rounded-xl overflow-hidden shadow-2xl group h-[300px] md:h-[500px]">
                 
                 <div class="slide-active w-full h-full relative" id="slide-1">
-                    <img src="/image1.jpg" class="w-full h-full object-cover opacity-80" alt="本社外観">
+                    <img src="slide1.jpg" class="w-full h-full object-cover opacity-80" alt="本社外観">
                     <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                         <h3 class="text-xl font-bold">現在の本社社屋</h3>
                         <p class="text-sm text-gray-300">山梨県甲府市高室町</p>
@@ -103,7 +97,7 @@
                 </div>
 
                 <div class="slide-hidden w-full h-full relative" id="slide-2">
-                    <img src="/image2.jpg" class="w-full h-full object-cover opacity-80" alt="過去のイベント">
+                    <img src="slide2.jpg" class="w-full h-full object-cover opacity-80" alt="過去のイベント">
                     <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                         <h3 class="text-xl font-bold">80周年記念祝賀会</h3>
                         <p class="text-sm text-gray-300">社員集合写真</p>
@@ -250,47 +244,7 @@
         </div>
     </footer>
 
-    <script>
-        // シンプルなスライドショー用スクリプト
-        let currentSlide = 1;
-        const totalSlides = 3; // スライドの枚数
-
-        function changeSlide(direction) {
-            document.getElementById(`slide-${currentSlide}`).classList.add('slide-hidden');
-            document.getElementById(`slide-${currentSlide}`).classList.remove('slide-active');
-            document.getElementById(`dot-${currentSlide}`).classList.add('opacity-50');
-            document.getElementById(`dot-${currentSlide}`).classList.remove('opacity-100');
-
-            currentSlide += direction;
-            if (currentSlide > totalSlides) currentSlide = 1;
-            if (currentSlide < 1) currentSlide = totalSlides;
-
-            document.getElementById(`slide-${currentSlide}`).classList.remove('slide-hidden');
-            document.getElementById(`slide-${currentSlide}`).classList.add('slide-active');
-            document.getElementById(`dot-${currentSlide}`).classList.remove('opacity-50');
-            document.getElementById(`dot-${currentSlide}`).classList.add('opacity-100');
-        }
-
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-
-        // モバイルメニュー用スクリプト（リンククリック時に自動で閉じる機能を追加）
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        });
-
-        // スマホメニュー内のリンクを押した時にメニューを閉じる
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-            });
-        });
-    </script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/event.js"></script>
 </body>
 </html>
